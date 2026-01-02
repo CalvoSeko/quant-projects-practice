@@ -4,12 +4,12 @@ class shop_item:
         name: str, 
         price: int, 
         stats: dict[str, int],
-        percent_dmg_amp: float = 0
+        unique: bool = False
     ):
         self._name = name
         self._price = price
         self._stats = stats
-        self._percent_dmg_amp = percent_dmg_amp    
+        self._unique = unique
     
     @property
     def name(self):
@@ -22,10 +22,10 @@ class shop_item:
     @property
     def stats(self):
         return self._stats
-
+    
     @property
-    def percent_dmg_amp(self):
-        return self._percent_dmg_amp
+    def unique(self):
+        return self._unique
 
 class active_item(shop_item):
     def __init__(
@@ -33,10 +33,10 @@ class active_item(shop_item):
         name: str, 
         price: int, 
         stats: dict[str, int],
-        percent_dmg_amp: float = 0,
-        active_dmg: float = 0
+        active_dmg: float = 0,
+        unique: bool = False
     ):
-        super().__init__(name, price, stats, percent_dmg_amp)
+        super().__init__(name, price, stats, unique)
         self._active_dmg = active_dmg
     
     @property
